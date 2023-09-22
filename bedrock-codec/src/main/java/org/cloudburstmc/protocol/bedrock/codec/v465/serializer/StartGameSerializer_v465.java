@@ -61,7 +61,7 @@ public class StartGameSerializer_v465 extends StartGameSerializer_v440 {
         buffer.writeBoolean(packet.isNetherType());
         helper.writeString(buffer, packet.getEduSharedUriResource().getButtonName());
         helper.writeString(buffer, packet.getEduSharedUriResource().getLinkUri());
-        helper.writeOptional(buffer, OptionalBoolean::isPresent, packet.getForceExperimentalGameplay(), (buf, optional) -> {});
+        buffer.writeBoolean(packet.getForceExperimentalGameplay().getAsBoolean());
     }
 
     @Override

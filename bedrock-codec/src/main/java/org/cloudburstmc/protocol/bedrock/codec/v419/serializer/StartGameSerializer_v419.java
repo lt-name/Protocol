@@ -130,7 +130,7 @@ public class StartGameSerializer_v419 implements BedrockPacketSerializer<StartGa
         buffer.writeIntLE(packet.getLimitedWorldWidth());
         buffer.writeIntLE(packet.getLimitedWorldHeight());
         buffer.writeBoolean(packet.isNetherType());
-        helper.writeOptional(buffer, OptionalBoolean::isPresent, packet.getForceExperimentalGameplay(), (buf, optional) -> {});
+        buffer.writeBoolean(packet.getForceExperimentalGameplay().getAsBoolean());
     }
 
     protected void readLevelSettings(ByteBuf buffer, BedrockCodecHelper helper, StartGamePacket packet) {

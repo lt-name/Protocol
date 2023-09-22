@@ -58,7 +58,7 @@ public class StartGameSerializer_v567 extends StartGameSerializer_v544 {
         buffer.writeBoolean(packet.isNetherType());
         helper.writeString(buffer, packet.getEduSharedUriResource().getButtonName());
         helper.writeString(buffer, packet.getEduSharedUriResource().getLinkUri());
-        helper.writeOptional(buffer, OptionalBoolean::isPresent, packet.getForceExperimentalGameplay(), (buf, optional) -> {});
+        buffer.writeBoolean(packet.getForceExperimentalGameplay().getAsBoolean());
         buffer.writeByte(packet.getChatRestrictionLevel().ordinal());
         buffer.writeBoolean(packet.isDisablingPlayerInteractions());
     }
